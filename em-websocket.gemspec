@@ -54,8 +54,7 @@ Gem::Specification.new do |s|
      "spec/unit/handler_spec.rb",
      "spec/websocket_spec.rb",
      "examples/echo.rb",
-     "examples/multicast.rb",
-     "examples/srv.rb"
+     "examples/multicast.rb"
   ]
 
   if s.respond_to? :specification_version then
