@@ -11,8 +11,9 @@ module EventMachine
         trap("TERM") { stop }
         trap("INT")  { stop }
 
+        handler = options[:handler] || EventMachine::WebSocket::Connection
         EventMachine::start_server(options[:host], options[:port],
-          EventMachine::WebSocket::Connection, options) do |c|
+        handler, options) do |c|
           blk.call(c)
         end
       end
