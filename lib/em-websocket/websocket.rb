@@ -12,9 +12,10 @@ module EventMachine
         trap("INT")  { stop }
 
         handler = options[:handler] || EventMachine::WebSocket::Connection
-        EventMachine::start_server(options[:host], options[:port],
-        handler, options) do |c|
-          blk.call(c)
+        EventMachine::start_server(options[:host], options[:port], handler, options) do |c|
+          if block_given?
+            blk.call(c)
+          end
         end
       end
     end
